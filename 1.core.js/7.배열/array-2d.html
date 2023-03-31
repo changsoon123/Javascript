@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //우리반 학생들 4과목 점수 (국영수탐)
+        // var kim = [67,89,92,32];
+        // var lee = [100,87,55,67];
+        // var park = [23,34,100,22];
+
+        var outStudentScore = [
+        [67,89,92,32],
+        [100,87,55,67],
+        [23,44,100,22]
+        ];
+
+        console.log(outStudentScore);
+        console.log(outStudentScore[1]); //array
+        console.log(outStudentScore[0][2]);
+
+        //반 평균 구해 주세요.
+        var result = 0;
+        for(var j=0;j<outStudentScore.length;j++){
+        for(var i=0;i<outStudentScore[j].length;i++){
+            result += outStudentScore[j][i];
+            // console.log(result);
+        }
+        
+    }
+    console.log(parseInt(result/3));
+    </script>
+
+</body>
+</html>
