@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // const x; const는 반드시 초기화 해야한다.
+
+        const x= '메롱';
+        console.log(x);
+        // x = '안메롱'; 값의 변경이 불가능
+
+        //const와 객체 (객체, 배열, 함수)
+        const person = {
+            name : 'park',
+            age : 20
+        }
+
+        person.name = 'kim'; //객체의 프로퍼티 변경은 가능
+        console.log(person.name);
+
+        //객체 자체를 변경하는 행위
+        // person = {     주소값이 바뀌는 행위라 안됨.
+        //     name : 'lee',
+        //     age : 30
+        // }
+        //const는 for문 사용 불가
+
+        
+
+
+    </script>
+    
+</body>
+</html>
