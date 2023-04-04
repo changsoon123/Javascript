@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+    
+//필요한 데이터: 랜덤 숫자, 횟수카운트, 카운트다운, 최소값, 최대값
+
+//최대범위를 저장할 변수
+const MAX = 100;
+
+//게임에 필요한 데이터를 모아놓을 객체
+const gameData = {
+    secret_num : Math.floor(Math.random()*MAX) + 1,
+    count : 0,
+    countdown : 6,
+    min : 1,
+    max : MAX
+};
+
+////////////////////////함수 정의부///////////////////////////////
+
+//사용자의 입력을 수행하는 함수
+function inputNumber() {
+
+    let {secret_num, count,countdown, min,max } = gameData;
+    let r = +prompt(min +"~" + max + '사이의 값입니다.');
+    gameData.input = r;
+    console.log(r);
+    // gameData = {secret_num,count,countdown,min,max};
+    //객체에서 min과 max의 값을 뽑아서 메세지를 완성.
+    //객체 디스트럭쳐링으로 뽑아 보세요~
+
+    //사용자의 입력값을 객체에 추가
+
+    //입력값 검증 함수를 호출.
+    return checkNumber();
+
+}
+
+//사용자의 입력값을 검증하는 함수
+function checkNumber() {
+
+    let {secret_num, count,countdown, min,max,input} = gameData;
+
+            if(input===0){
+                alert("나가집니다!");
+                return true;
+            }
+
+            if(input===secret_num && input<=100){
+                if(countdown>0){
+                alert('야호~!!!!');
+                
+                return true;
+                } else {
+                    alert('우우우~~~!!!!');
+                    return true;
+                }
+
+            } else if(secret_num>input && input<=100){
+                alert('UP!!!!!!!!!!');
+                gameData.min=gameData.input;
+                gameData.countdown--;
+                gameData.count++;
+                alertCountDown(gameData.countdown)
+                return false;
+            } else if(secret_num<input && input<=100){
+                alert('DOWN!!!!!!!!!!');
+                gameData.max=gameData.input;
+                gameData.countdown--;
+                gameData.count++;
+                alertCountDown(gameData.countdown)
+                return false;
+            
+            } else {
+                alert('똑바로 입력하지 않았기 때문에 종료합니다.');
+                return true;
+            }
+
+            
+            
+            
+
+}
+
+//사용자의 카운트다운을 체크하여 승리 여부를 알려주는 함수
+function checkCountDown(countdown) {
+    let {count} = gameData;
+   if(countdown>0){
+    alert(countdown+'번 남았습니다. 승리했습니다!!');
+   } else {
+    alert((count-5)+'번 추가 도전했기 때문에 패배했습니다.');
+   }
+}
+
+
+//사용자의 남은 카운트다운 횟수를 알려주는 함수
+function alertCountDown(countdown) {
+    let {count} = gameData;
+    if(countdown<=0){
+        alert((count-5)+'번 추가 도전중입니다.');
+    }else{
+    alert(countdown+'번 남았습니다.');
+    }
+}
+
+
+//핵심 실행부 (main의 역할을 하는 함수)
+//즉시 실행 함수로 선언하여 따로 호출하지 않아도
+//바로 실행될 수 있도록 작성.
+
+(function() {
+    alert('[UP & DOWN 게임 - 1 ~ 100 사이의 숫자를 맞춰보세요!]');
+    
+    //입력을 담당하는 함수를 호출할 예정.
+    while(!inputNumber()) {
+        
+        let {secret_num,count,countdown,min,max,input} = gameData;
+        // alertCountDown(countdown);
+        // inputNumber();
+        
+        if(input===0){
+                return;
+            }
+        
+
+        //true가 리턴되면 프로그램 종료.
+        //false가 리턴되면 게임 계속 진행.
+    }
+            let{countdown,input} = gameData;
+            
+            if(input!==0 && input<=100){
+                checkCountDown(countdown);
+            }
+    
+}()); 
+
+</script>
+
+</body>
+</html>
