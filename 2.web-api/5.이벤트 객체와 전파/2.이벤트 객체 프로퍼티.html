@@ -20,7 +20,8 @@
 
         $checkbox.addEventListener('change', e =>{
             //실제 이벤트가 일어난 요소
-            // console.log(e.target);
+            console.log(e)
+            console.log(e.target);
 
             $em.textContent = e.target.checked ? '체크됨!' : '체크 안됨!';
             //체크박스 or radio 버튼의 체크 유무를 확인하는 프로퍼티

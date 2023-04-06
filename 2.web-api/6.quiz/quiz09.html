@@ -57,7 +57,7 @@
             color:black;
         }
         .dark{
-            background: #000;
+            background: black;
             color:white;
         }
 
@@ -100,13 +100,16 @@
         */
         const $btn1 = document.querySelector('#btn1');
         const $light = document.querySelector('.light')
-        const $dark = document.querySelector('.dark')
-        const $body = document.querySelector('body')
+        
+       
 
-        $btn1.addEventListener('click',function(e){
+        $btn1.addEventListener('click',function(){
+            if($btn1.textContent==="어둡게 보기"){
             $btn1.textContent = "밝게 보기";
-            
-            $body.style = $dark.style
+            } else {
+                $btn1.textContent = "어둡게 보기";
+            }
+            document.body.classList.toggle('dark');
         })
 
         /*
@@ -117,6 +120,60 @@
         홍길동<br>20세<br>능력단위<br>Java, Oracle, Jsp, CSS, JavaScript
         */
 
+        const $btn2 = document.querySelector('#btn2');
+        const $center = document.querySelector('.center');
+        const $p = document.querySelector('.inner p');
+
+        // console.log($btn2.classList.contains('name'));
+
+        $btn2.addEventListener('click',function(){
+
+            if($btn2.classList.contains('name')){
+                // const $newbutton = document.createElement('button');
+                $btn2.classList.add('content11')
+                $btn2.classList.remove('name')
+                $btn2.textContent='내용 보기';
+                // console.log($btn2)
+                // console.log($p)
+                $p.innerHTML=' 홍길동<br>20세<br>능력단위<br>Java, Oracle, Jsp, CSS, JavaScript';
+            } else {
+                $btn2.classList.add('name')
+                $btn2.classList.remove('content11')
+                $btn2.textContent='이름 보기';
+                // console.log($btn2)
+                // console.log($p)
+                $p.innerHTML=' 자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다. 이 언어는 웹 브라우저 내에서 주로 사용하며, 다른 응용 프로그램의 내장 객체에도 접근할 수 있는 기능을 가지고 있다. 또한 Node.js와 같은 런타임 환경과 같이 서버 사이드 네트워크 프로그래밍에도 사용되고 있다.';
+            }
+        })
+    
+        const $btn3 = document.querySelector('#btn3');
+        const $inimg = document.querySelector('.inner img');
+        const $inner1 = document.querySelector('.left .inner');
+        // console.log($inner1)
+        // console.log($inimg)
+        // console.log($inimg.hasAttribute('src'))
+
+        $btn3.addEventListener('click',function(){
+        
+        if(!$inner1.firstChild.classList.contains('memo')){
+            $inner1.removeChild($inner1.firstElementChild)
+            const $textarea = document.createElement('textarea');
+            $textarea.classList.add('memo');
+            $btn3.textContent="사진 모드"
+            $inner1.appendChild($textarea);
+            console.log($inner1)
+            
+        } else {
+            $inner1.removeChild($inner1.firstElementChild)
+            console.log($inner1)
+            const $inimg = document.createElement('img');
+            $inimg.setAttribute('src','./img (3)/1.jpg')
+            $btn3.textContent="메모장 모드"
+            $inner1.appendChild($inimg);
+
+        }
+
+    })
         /*
         메모장 보기 모드는 textarea를 생성해서 추가.
         클래스 이름 memo 속성을 추가해 주세요.
