@@ -45,19 +45,20 @@
     
     }
 
-    const $textinput = document.getElementById('id');
-    const $checkbox = document.getElementById('remember');
-    const $button = document.getElementById('check2');
+    const $result = document.getElementById('id');
+    const $remember = document.getElementById('remember');
+    
+    document.getElementById('check2').onclick = function(e) {
+        console.log('value' + $result.value);
+        console.log('check값: ' + $remember.checked);
 
-    $button.addEventListener('click',function(){
-        if(!($textinput.value==='')){
-            
-          if($checkbox.checked){
-            alert('성공')
+        if($result.value===''){
+            alert('아이디는 필수값입니다!');
+        } else if(!$remember.checked){
+            alert('기억하기를 체크하지 않았습니다.')
         }
-    }
 
-    })
+    }
         
     
 

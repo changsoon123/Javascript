@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>자바스크립트 카운트</h2>
+    <input type="text" id="result" value="0" readonly>
+    <button id="plus">+</button>
+    <button id="minus">-</button>
+
+
+    <script>
+
+        const $count = document.querySelector('#result');
+        const $plus = document.querySelector('#plus');
+        const $minus = document.querySelector('#minus');
+
+        $plus.addEventListener('click',function(){
+            // $count.value++;
+            let value = $count.getAttribute('value');
+            console.log(value);
+            value++;
+            console.log(value);
+            $count.setAttribute('value',value);
+        })
+
+        $minus.onclick = function(){
+
+            let value = $count.getAttribute('value');
+            if(+value === 0) {
+                alert('0미만으로 내릴 수 없습니다.')
+                return;
+            }
+            value--;
+            $count.setAttribute('value',value);
+
+            // if(+$count.value===0){
+            //     alert('0미만으로 내릴 수 없습니다.')
+            //     return;
+            // }
+            // $count.value--;
+        }
+
+        
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-
-    <script>
         //필요한 데이터: 랜덤 숫자, 횟수카운트, 카운트다운, 최소값, 최대값
 
         //최대범위를 저장할 변수
@@ -106,8 +94,3 @@
             }
 
         }());
-    </script>
-
-</body>
-
-</html>
