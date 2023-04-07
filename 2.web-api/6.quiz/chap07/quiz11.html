@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        thead th,
+        tbody td {
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <h2>이벤트 위임 방식으로 변경해 보세요.</h2>
+
+    <table>
+        <thead>
+            <th>번호</th>
+            <th>제목</th>
+            <th>내용</th>
+            <th>삭제</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button>삭제</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>두번째 글</td>
+                <td>hi</td>
+                <td><button>삭제</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>세번째 글</td>
+                <td>hi</td>
+                <td><button>삭제</button></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>네번째 글</td>
+                <td>hi</td>
+                <td><button>삭제</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+    /*
+	이벤트 전파 방식을 사용해서 
+	삭제를 누를 때마다 해당 tr이 지워질 수 있도록 처리해 보세요.
+   */
+        
+        const $table = document.querySelector('table');
+        const $tbody = document.querySelector('tbody');
+        const $tr = document.querySelectorAll('tr');
+        const $button = document.querySelectorAll('td button');
+        // console.log($table)
+        // console.log($tbody[0])
+        // console.log($button[0])
+
+        for(let $ttr of $tr){
+        $ttr.addEventListener('click',function(e){
+            if(!e.target.matches('tr td button')){
+            console.log('eee')
+                alert('여기는 클릭하면 안 됩니다!')
+                return;
+            }
+
+            $ttr.remove(e.target)
+            // if(!e.target.matches('td button')){
+            //     alert('여기는 클릭하면 안됩니다!')
+            //     return;
+            // }
+
+        })
+    }
+
+    </script>
+
+</body>
+</html>
