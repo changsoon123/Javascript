@@ -63,6 +63,7 @@
             const $list = document.querySelector('.main-banner1');
             $list.children[idx].style.display = 'inline';
             idx++;
+            console.log($list.children)
             if(idx === $list.children.length    ){
                 clearInterval(inter);
             }
