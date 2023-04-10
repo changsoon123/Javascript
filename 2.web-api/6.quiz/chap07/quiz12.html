@@ -84,10 +84,20 @@
 
             console.log(e.target.getAttribute('data-id'))
 
+
+            /*
+            for(let $ele of [...$toggleList]){
+             $ele.classList.toggle('active', document.queryselector($e.target.datset.id)=== $ele)
+
+            }
+
+            */
+
             for(let $ddiv of $divlist){
                 // console.log($ddiv.getAttribute('id'));
                 if(!(e.target.getAttribute('data-id')==='#'+$ddiv.getAttribute('id'))){
                     // $ddiv.classList.toggle('active',$ddiv === e.target);
+
                     $ddiv.classList.remove('active');
                 }
 

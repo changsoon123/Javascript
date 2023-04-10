@@ -59,6 +59,13 @@
 	삭제를 누를 때마다 해당 tr이 지워질 수 있도록 처리해 보세요.
    */
         
+        //매개변수를 선언하지 않으면 이벤트 객체를 못쓰냐? 아닙니다.
+        //function(e) <---이걸 말하는거임
+        //(event.target) <---이렇게도 사용은 가능
+        //(e.target)
+        //event라는 이름으로 바로 사용이 가능합니다.
+        //근데 웬만하면 이름을 붙여서 쓰는게 편합니다.
+        
         const $table = document.querySelector('table');
         const $tbody = document.querySelector('tbody');
         const $tr = document.querySelectorAll('tr');
