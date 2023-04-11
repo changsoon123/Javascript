@@ -89,3 +89,36 @@ section.main .type .icon {
 .right .lnr{
     cursor: pointer;
 }
+
+.test{
+    animation: removeall 1s linear forwards;
+}
+
+.papa{
+    /* transform: translate(200px, 0); */
+    /* background: orangered; */
+    /* padding: 1px; */
+    overflow: hidden;
+}
+
+
+@keyframes removeall{
+    0%{
+    
+        transform: translate(-20px,0);
+        background: orangered;
+    }
+    25%{
+        transform: translate(-60px,0);
+        background: orangered;
+    }
+
+    50%{
+        transform: translate(-100px,0);
+        background: orangered;
+    }
+    100%{
+        transform: translate(-160px,0);
+        background: orangered;
+    }
+}
