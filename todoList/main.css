@@ -92,14 +92,14 @@ section.main .type .icon {
 
 .test{
     animation: removeall 1s linear forwards;
+    overflow: hidden;
 }
 
-.papa{
+/* .papa{ */
     /* transform: translate(200px, 0); */
     /* background: orangered; */
     /* padding: 1px; */
-    overflow: hidden;
-}
+/* } */
 
 
 @keyframes removeall{

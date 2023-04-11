@@ -7,6 +7,7 @@ const $lii = document.querySelectorAll('#todoList li')
 const $input = document.querySelector('.type input');
 const $leftext = document.querySelector('.left .text')
 const $rightremove = document.querySelectorAll('.right .lnr-cross-circle');
+const $papa = document.querySelector('#todoList .papa');
 // let $shallowClone;
 
 $icon.addEventListener('click', function (e) {
@@ -17,21 +18,24 @@ $icon.addEventListener('click', function (e) {
     $input.value = '';
     //     return;
     // }
-
+    console.log($papa)
     // const $li2 = document.createElement('li');
     // console.log($li)
-    const $shallowClone = $li.cloneNode(true);
-    console.log($shallowClone.children[0].children[1])
-    $shallowClone.children[0].children[1].textContent = $inputValue;
+    const $shallowClone = $papa.cloneNode(true);
+    // console.log($shallowClone.children[0].children[1])
+    $shallowClone.children[0].children[0].children[1].textContent = $inputValue;
     // console.log($shallowClone)
 
     const $removeButton = $shallowClone.querySelector('.right .lnr-cross-circle');
     $removeButton.addEventListener('click', function (e) {
-        document.querySelector('.test')
-        e.target.parentNode.parentNode.remove();
+            $shallowClone.classList.add('test');
+            setTimeout(function () {
+                e.target.parentNode.parentNode.parentNode.remove();
+            }, 1000);
     });
+    $shallowClone.classList.remove('test')
 
-    if ($shallowClone.children[0].children[1].textContent === '') {
+    if ($shallowClone.children[0].children[0].children[1].textContent === '') {
         alert('빈칸은 입력할 수 없습니다! 입력해주세요.')
         return;
     }
@@ -50,20 +54,34 @@ $input.addEventListener('keyup', function (e) {
         // alert("할 일이 너무 많아요~~~");
         const $inputValue = $input.value;
         $input.value = '';
-        const $shallowClone = $li.cloneNode(true);
-        $shallowClone.children[0].children[1].textContent = $inputValue;
-        if ($shallowClone.children[0].children[1].textContent === '') {
+        const $shallowClone = $papa.cloneNode(true);
+        $shallowClone.children[0].children[0].children[1].textContent = $inputValue;
+        if ($shallowClone.children[0].children[0].children[1].textContent === '') {
             alert('빈칸은 입력할 수 없습니다! 입력해주세요.')
             return;
         }
-        const $removeButton = $shallowClone.querySelector('.right .lnr-cross-circle');
-        $removeButton.addEventListener('click', function (e) {
-            e.target.parentNode.parentNode.remove();
-        });
-        $todolist.appendChild($shallowClone);
-        // console.log($shallowClone)
 
-        $todolist.appendChild($shallowClone)
+        
+
+        // $shallowClone.classList.add('test');
+        const $removeButton = $shallowClone.querySelector('.right .lnr-cross-circle');
+        
+        $removeButton.addEventListener('click', function (e) {
+            // const $target = $shallowClone;
+            // $target.classList.add('test');
+            // setTimeout(function () {
+            //     $target.remove();
+            // }, 3000);
+            $shallowClone.classList.add('test');
+            setTimeout(function () {
+                e.target.parentNode.parentNode.parentNode.remove();
+            }, 1000);
+        });
+        $shallowClone.classList.remove('test')
+       
+        // console.log($shallowClone)
+        $todolist.appendChild($shallowClone);
+
     } else if (e.key === 'Escape') {
         $input.value = '';
     }
@@ -81,12 +99,12 @@ for (let $riri of $rightremove) {
 
         // e.target.closest('li').remove();
 
-        
+
         e.target.parentNode.parentNode.parentNode.classList.add('test');
         console.log(e.currentTarget.parentNode.parentNode.parentNode)
         setTimeout(function () {
             // if (e.currentTarget.parentNode.parentNode) {
-                e.target.parentNode.parentNode.remove();
+                e.target.parentNode.parentNode.parentNode.remove();
             // }
         }, 1000);
 
